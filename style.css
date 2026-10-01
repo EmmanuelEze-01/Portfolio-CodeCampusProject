@@ -292,6 +292,11 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
   gap: 30px;
 }
 
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .tag span {
   font-size: var(--font-size-h1);
   color: var(--text-color-two);
@@ -467,12 +472,22 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
 }
 
 .services-section .services-container .services-card {
-  background-color: var(--background-color-one);
+  /* custom variables for hover effect over parent to affect child element */
+  --p-primary-color: #535da1;
+  --p-secondary-color: #14b789;
+  --p-background-color-one: #fdfdfd;
+  --p-text-color-one: #000000;
+  --p-border-color: #fdfdfd;
+  --p-stylishdiv-border: #717275;
+
+  background-color: var(--p-background-color-one);
+  border: 2px solid var(--p-border-color);
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
   border-radius: 20px;
   gap: 40px;
+  transition: all 0.5s ease-in-out;
   overflow: hidden;
 }
 
@@ -498,7 +513,7 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
   .services-card
   .services-card-heading
   span:last-child {
-  background-color: var(--primary-color);
+  background-color: var(--p-primary-color);
   padding: 7px 10px;
   border-radius: 999px;
   position: relative;
@@ -509,6 +524,8 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
   border: none;
   outline: none;
   color: var(--text-color-two);
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
 }
 
 .services-section
@@ -518,11 +535,13 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
   span:last-child::after {
   content: " ";
   width: 20px;
+  transition: all 0.5s ease-in-out;
+
   height: 20px;
-  background-color: var(--secondary-color);
+  background-color: var(--p-secondary-color);
   position: absolute;
-  top: -0.5px;
-  right: 0;
+  top: -1px;
+  right: -1px;
   border-radius: 0 999px 0 999px;
 }
 
@@ -551,16 +570,9 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
   box-shadow: 2px 2px 8px var(--color-text-body);
 }
 
-/* .stlcon {
-  width: 100%;
-  background-color: #14b789;
-  position: relative;
-} */
-
 .services-section .services-container .services-card .stylish-icon {
   width: 100%;
   height: 200px;
-  /* border: 1px solid var(--color-text-body); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -568,22 +580,123 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
   z-index: 1;
 }
 
-/* .services-section .services-container .services-card .stylish-icon::after {
-  content: "ARE";
-
-} */
-
 .services-section .services-container .services-card .stylish-icon div {
   position: absolute;
-  width: 150px;
-  height: 200px;
-  border: 2px solid salmon;
+  width: 220px;
+  height: 280px;
+  border: 1px solid var(--p-stylishdiv-border);
+  background-color: var(--p-border-color);
   display: flex;
   z-index: 2;
   align-items: center;
   justify-content: center;
-  bottom: -40px;
+  transition: all 0.6s ease-in-out;
+  bottom: -60px;
   border-radius: 10px;
   right: -40px;
   transform: rotate(-35deg);
 }
+
+.services-section .services-container .services-card .stylish-icon div i {
+  font-size: 6rem;
+  color: var(--p-text-color-one);
+  background: transparent;
+  transition: all 0.8s ease-in-out;
+}
+
+.parent:hover {
+  box-shadow: 2px 2px 10px var(--color-text-body);
+  border: 2px solid var(--color-accent);
+}
+
+.services-section .services-container .services-card:hover {
+  --p-primary-color: #14b789;
+  --p-secondary-color: #535da1;
+  --p-text-color-one: #ffffff;
+  --p-border-color: #14b789;
+  --p-stylishdiv-border: #14b789;
+  box-shadow: 2px 2px 10px var(--color-text-body);
+}
+
+.projects-section .tag {
+  grid-column: 2/5;
+}
+
+.projects-section {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color-one);
+  gap: 30px;
+}
+
+.projects-section .projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 400px);
+  gap: 20px;
+}
+
+.projects-container-cards {
+  background-color: #717275;
+  padding: 30px;
+  overflow: hidden;
+  background: var(--background-color-two);
+  border: 2px solid var(--background-color-two);
+  transition: all 1s ease;
+  border-radius: 20px;
+  position: relative;
+
+  --rotation-angle: 20deg;
+  --bottom-position: -65px;
+}
+
+.projects-container-cards span {
+  font-size: var(--font-size-small);
+  color: var(--secondary-color);
+  text-transform: uppercase;
+}
+
+.projects-container-cards h2 {
+  font-size: var(--font-size-h2);
+}
+
+.projects-container-cards .image-container {
+  width: 270px;
+  height: 270px;
+  border-radius: 20px;
+  /* background-color: red; */
+  background: linear-gradient(
+    35deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  position: absolute;
+  transition: all 1.2s ease;
+  animation: move 2.2s infinite;
+  cursor: pointer;
+  left: 40px;
+  bottom: var(--bottom-position);
+  transform: rotate(var(--rotation-angle));
+}
+
+.projects-container-cards:hover {
+  border: 3px solid var(--secondary-color);
+
+  --rotation-angle: 0deg;
+  --bottom-position: 20px;
+}
+
+/* @keyframes move {
+  0% {
+    left: 40px;
+    bottom: -65px;
+    transform: rotate(var(--rotation-angle));
+  }
+
+  100% {
+    bottom: 20px; 
+    transform: rotate(0);
+  }
+} */
