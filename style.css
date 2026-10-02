@@ -186,7 +186,7 @@ img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: url(/assets/images/hero-section-img.jpg);
+  background: url(assets/images/My-image.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -649,6 +649,7 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
 
   --rotation-angle: 20deg;
   --bottom-position: -65px;
+  --left-position: 40px;
 }
 
 .projects-container-cards span {
@@ -666,18 +667,39 @@ THEN FOR THE SEEVICES, PROJECTS AND CONTACT SESSIONS, I'LL USE THE TAG CLASS TO 
   height: 270px;
   border-radius: 20px;
   /* background-color: red; */
-  background: linear-gradient(
+  /* background: linear-gradient(
     35deg,
     var(--primary-color),
     var(--secondary-color)
-  );
+  ); */
   position: absolute;
   transition: all 1.2s ease;
   animation: move 2.2s infinite;
   cursor: pointer;
-  left: 40px;
+  left: var(--left-position);
   bottom: var(--bottom-position);
   transform: rotate(var(--rotation-angle));
+}
+
+.pone {
+  background: url(assets/images/project1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ptwo {
+  background: url(assets/images/project2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pthree {
+  background: url(assets/images/project3.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .projects-container-cards:hover {
@@ -1070,6 +1092,13 @@ footer span:hover {
     --font-size-stats: 3rem; /* 48px - Featured Numbers */
     --font-size-body: 1.125rem; /* 18px - Paragraph / Body Text */
     --font-size-small: 0.875rem; /* 14px - Navigation, Buttons & Footer Headers */
+  }
+  .projects-container-cards .image-container {
+    width: 230px;
+    height: 230px;
+  }
+  .projects-container-cards:hover {
+    --left-position: 20px;
   }
 }
 
